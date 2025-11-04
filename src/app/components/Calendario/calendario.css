@@ -1,0 +1,136 @@
+
+  /* Caja del calendario */
+  .calendario-box {
+    background: #f2e0d5;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+    /*box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);*/
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Títulos */
+  .calendario-titulo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .calendario-subtitulo {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  /* Botón */
+  .btn-siguiente {
+    margin-top: 1.5rem;
+    background-color: #f2994a;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-siguiente:hover {
+    background-color: #e28536;
+  }
+  
+  /* Estilo personalizado del calendario */
+  .mi-calendario {
+    border: none;
+    font-size: 0.95rem;
+    background-color:#f2e0d5 ;
+  }
+  
+  .react-calendar {
+    width: 100%;
+    border: none;
+  }
+  
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .react-calendar__navigation button {
+    background: none;
+    color: #f2994a;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .react-calendar__navigation button:hover {
+    color: #e28536;
+  }
+  
+  .react-calendar__tile {
+    border-radius: 8px;
+    padding: 0.75rem 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .react-calendar__tile:enabled:hover {
+    background-color: #e28536;
+  }
+  
+  .react-calendar__tile--now {
+    background: #f2994a33;
+    border-radius: 8px;
+  }
+
+
+  .mi-calendario button[disabled] {
+    background-color: #f2e0d5;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  .dia-disponible {
+    background-color: rgba(205, 159, 133, 0.3) !important; /* Verde menta con transparencia */
+    color: #400203 !important;
+    font-weight: bold !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+    width: 90% !important;
+    position: relative !important;
+}
+
+.dia-disponible:hover {
+    background-color: #cd9f85 !important;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+    color: #999;
+}
+
+/* Estilo para el día seleccionado */
+.react-calendar__tile--active,
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background-color: #cd9f85 !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+    width: 90% !important;
+}

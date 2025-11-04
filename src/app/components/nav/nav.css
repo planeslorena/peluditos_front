@@ -1,0 +1,55 @@
+.img-logo {
+    width: 25%;
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    border: none; /* Elimina el borde */
+    box-shadow: none; /* Elimina cualquier sombra */
+    background-color: transparent; 
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none; /* Elimina el borde al presionar */
+    box-shadow: none; /* Elimina cualquier sombra al presionar */
+}
+
+.redes {
+    color: #6c757d;
+    text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* 🔹 Mobile */
+@media (max-width: 576px) {
+    .img-logo {
+        width: 60%;
+    }
+
+    .navbar-collapse {
+        /* fondo blanco al abrir el menú */
+        text-align: right;
+        padding: 1rem 0;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .redes-container {
+    justify-content: center;   /* centra horizontalmente */
+    width: 100%;               /* ocupa todo el ancho */
+    margin: 1rem 0;            /* separa del nav */
+  }
+}

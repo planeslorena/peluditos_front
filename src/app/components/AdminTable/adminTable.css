@@ -1,0 +1,93 @@
+.table-admin-container {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 2px solid #f2e0d5;
+}
+
+.table-admin-thead {
+    background: #f2e0d5;
+    color: #400203;
+}
+
+.table-admin-th {
+    text-align: left;
+    padding: 12px;
+}
+
+.table-admin-td {
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background: rgba(242, 224, 213, 0.3);
+    /* #f2e0d5 convertido a rgba con 0.7 de transparencia */
+}
+
+
+.inputbuscador-admin {
+    margin-bottom: 10px;
+    border: solid 2px #f2e0d5;
+}
+
+.inputbuscador-admin:focus {
+    border-color: #594545 !important;
+    outline: none !important;
+}
+
+.icon-double-arrow {
+    padding-left: 7px;
+    font-size: 20px !important;
+}
+
+.icon-down {
+    padding-left: 7px;
+    font-size: 20px !important;
+}
+
+.icon-up {
+    padding-left: 7px;
+    font-size: 20px !important;
+}
+
+.body-ajustes {
+    text-align: center;
+    padding: 0px;
+}
+
+.icon {
+    font-size: 20px !important;
+
+}
+
+.icon-trash {
+    font-size: 20px !important;
+}
+
+/* Ajustes para dispositivos móviles */
+@media screen and (max-width: 768px) {
+
+    .table-admin-th,
+    .table-admin-td {
+        padding: 8px;
+        /* Reduce el padding en móviles */
+        font-size: 14px;
+        /* Reduce el tamaño de fuente */
+    }
+
+    .icon-pencil,
+    .icon-trash {
+        font-size: 20px !important;
+        /* Iconos más pequeños en móviles */
+    }
+
+    .table-admin-container {
+        overflow-x: auto;
+        /* Permite scroll horizontal */
+        display: block;
+        /* Necesario para que funcione overflow-x */
+    }
+
+
+}

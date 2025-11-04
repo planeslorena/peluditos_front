@@ -1,0 +1,9 @@
+.modal-content {
+    background-color: #f2e0d5 !important;
+}
+
+
+/* Para asegurar que los inputs mantengan el fondo blanco */
+.form-control:focus {
+    background-color: #e0e0e0;
+}

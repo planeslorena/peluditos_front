@@ -1,0 +1,76 @@
+.agenda-page {
+    margin: 1rem 2%;
+}
+
+.input-fecha {
+    border: solid 2px #f2e0d5;
+    padding: 2px;
+}
+
+.table-agenda {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #f2e0d5;
+    font-size: 15px;
+}
+
+.table-agenda th,
+.table-agenda td {
+    padding: 10px;
+    text-align: center;
+}
+
+.table-agenda thead {
+    background: #f2e0d5;
+    color: #400203;
+}
+
+.table-agenda tbody tr:nth-child(even) {
+    background: rgba(242, 224, 213, 0.3);
+}
+
+/* Estados de celdas */
+.table-admin-td.pendiente {
+    color: #999;
+    font-style: italic;
+}
+
+.table-admin-td.ocupado {
+    color: #400203;
+    font-weight: bold;
+}
+
+.table-admin-td.no-horario {
+    color: #ccc;
+}
+
+.table-agenda td.fw-bold {
+    font-weight: bold;
+    background-color: #f9f6f4;
+    color: #400203;
+}
+.table-admin-td.clickable {
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.table-admin-td.clickable:hover {
+  background-color: #f2e0d5;
+  color: #400203;
+  font-weight: bold;
+}
+/* Responsive */
+@media screen and (max-width: 768px) {
+
+    .table-agenda th,
+    .table-agenda td {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .agenda-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}

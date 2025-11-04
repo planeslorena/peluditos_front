@@ -1,0 +1,35 @@
+.carousel-wrapper {
+  width: 100%;          /* 🔹 ocupa el 80% del ancho */
+  margin: 0 auto;      /* 🔹 centra el carrusel horizontalmente */
+}
+
+.img-banner{
+    width: 50%;
+    height: 80vh;
+    object-fit:cover;
+    margin: 0;
+    padding: 0;
+    object-position: 50% 10%; 
+}
+
+.btn-reserva {
+    font-size: 1.5rem;
+    padding: 10px 20px !important;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+    .banner {
+        background-position: 85%;
+        min-height: 50vh;
+    }
+
+    .title-banner {
+        font-size: 1.5rem !important;
+    }
+
+    .btn-reserva {
+    font-size: 1rem;
+    padding: 10px 20px !important;
+}
+}

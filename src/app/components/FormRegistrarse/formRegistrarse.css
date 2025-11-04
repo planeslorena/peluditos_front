@@ -1,0 +1,16 @@
+/*Quita los botones de incremento y decremento del input tipo number*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
+.btn-dni {
+    opacity: .8;
+}
+
+.form-control{
+    background-color: #f0f0f0 !important;
+
+}

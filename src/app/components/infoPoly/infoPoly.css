@@ -1,0 +1,10 @@
+.title-info {
+    font-family: var(--font-categoria);
+    font-size: 50px;
+    color: #400203;
+}
+
+.text-infopoly {
+    font-size: 20px;
+    color: #400203;
+}
