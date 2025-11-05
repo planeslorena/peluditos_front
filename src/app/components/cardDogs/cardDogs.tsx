@@ -3,9 +3,6 @@
 export function CardDogs() {
   const dogImages = [
     './images/perro1.png',
-    './images/perro1.png',
-    './images/perro1.png',
-    './images/perro1.png',
     './images/perro2.png',
     './images/perro2.png',
     
@@ -14,7 +11,7 @@ export function CardDogs() {
   return (
     <>
       <div>
-        <h1 className="text-center text-service mb-4 p-3">Nuestros clientes</h1>
+        <h1 className="text-center text-service m-5 p-3">Nuestros clientes</h1>
       </div>
 
       <div className="container">

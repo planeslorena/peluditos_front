@@ -1,15 +1,28 @@
-# Etapa 1: build del proyecto
-FROM node:20-alpine AS builder
+# Etapa base: dependencias comunes
+FROM node:20-alpine AS base
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
+
+# Etapa de build
+FROM base AS builder
+WORKDIR /app
 COPY . .
-RUN npm run build && npm run export
+RUN npm run build
 
-# Etapa 2: servidor NGINX para archivos estáticos
-FROM nginx:alpine AS production
-COPY --from=builder /app/out /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# Etapa final (producción)
+FROM node:20-alpine AS production
+WORKDIR /app
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Copiamos solo lo necesario desde el builder
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.* ./
+COPY --from=builder /app/node_modules ./node_modules
+
+# Exponemos el puerto donde corre Next.js
+EXPOSE 3000
+
+# Comando para iniciar la app en modo producción
+CMD ["npm", "run", "start"]

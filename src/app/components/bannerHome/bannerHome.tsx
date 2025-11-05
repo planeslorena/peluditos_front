@@ -11,10 +11,10 @@ export function BannerHome() {
 
     return (
         <div className='carousel-wrapper'>
-            <Carousel>
+            <Carousel controls={false} indicators={false}>
                 <Carousel.Item>
                     <img
-                        src="/images/banner1.png"
+                        src="/images/banner1.webp"
                         alt="Perro saludando"
                         className="d-block w-100 img-banner"
                     />
@@ -29,7 +29,7 @@ export function BannerHome() {
 
                 <Carousel.Item>
                     <img
-                        src="/images/banner2.png"
+                        src="/images/banner2.jpg"
                         alt="Perro saludando"
                         className="d-block w-100 img-banner"
                     />
@@ -43,7 +43,7 @@ export function BannerHome() {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        src="/images/banner3.png"
+                        src="/images/banner3.jpeg"
                         alt="Perro saludando"
                         className="d-block w-100 img-banner"
                     />

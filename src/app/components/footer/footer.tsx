@@ -8,9 +8,7 @@ export function Footer() {
 
     return (
         <>
-
-
-            <div className="footer bg-footer text-center py-4 mt-5" id='contacto' >
+            <div className="footer bg-footer text-center p-4 mt-5" id='contacto' >
                 <div className="container">
                     <div >
                         <img

@@ -1,9 +1,8 @@
 'use client'
 import { Menu } from "@/app/components/nav/nav";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import './page.css';
-import { UserContext } from "@/app/context/user.context";
 import { AdminTable } from "@/app/components/AdminTable/adminTable";
 import { getAllMascotas, getClientes } from "@/app/services/client";
 import { getPeluqueras } from "@/app/services/admin";

@@ -21,15 +21,16 @@ export function Menu() {
               src="/images/logo-peluditos.png"
               className="img-fluid img-logo"
               alt="Logo Peluditos"
+              onClick={() => { router.push('/home') }}
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </div>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#services">Servicios</Nav.Link>
-            <Nav.Link href="#clients">Clientes</Nav.Link>
+            <Nav.Link onClick={() => { router.push('/home') }} >Inicio</Nav.Link>
+            <Nav.Link onClick={() => { router.push('/home#servicios') }}>Servicios</Nav.Link>
+            <Nav.Link onClick={() => { router.push('/home#nosotros') }}>Nosotros</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

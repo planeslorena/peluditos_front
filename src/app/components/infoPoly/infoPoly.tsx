@@ -4,7 +4,7 @@ import './infoPoly.css'
 export function InfoPoly() {
 
     return (
-        <>
+        <section id='nosotros'>
             <div className='row my-5 py-5'>
                 <div className="container-fluid py-5 " style={{ background: '#f2e0d5' }}>
                     <div className="row align-items-center" >
@@ -34,6 +34,6 @@ export function InfoPoly() {
                     </div>
                 </div>
             </div>
-        </>
+        </section>
     )
 }
