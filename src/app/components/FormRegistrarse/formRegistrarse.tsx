@@ -1,14 +1,12 @@
 import { useForm, SubmitHandler, set } from "react-hook-form"
 import "./formRegistrarse.css"
-import { login } from "@/app/services/login";
-import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { UserContext } from "@/app/context/user.context";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createClient } from "@/app/services/client";
-import { IUser } from "@/app/model/IUser";
 import Swal from "sweetalert2";
+import { ICliente } from "@/app/model/ICliente";
 
 
 
@@ -39,7 +37,8 @@ export default function FormRegistrarse(props: any) {
   const { userData, setUserData } = useContext(UserContext);
 
   const onSubmit = async (data: FormData) => {
-    const cliente: IUser = {
+    const cliente: ICliente = {
+      id_cliente: null,
       nombre: data.nombreApellido,
       dni: data.dni,
       mail: data.mail,

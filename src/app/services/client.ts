@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import clientAxios from './axios';
-import { IUser } from '../model/IUser';
+import { ICliente } from '../model/ICliente';
 
 export const getClientes = async (): Promise<any> => {
     try {
@@ -29,7 +29,7 @@ export const getMascotas = async (user:number): Promise<any> => {
     }
 }
 
-export const createClient = async (user:IUser): Promise<any> => {
+export const createClient = async (user:ICliente): Promise<any> => {
     try {
         const response: AxiosResponse<any, any> = await clientAxios.post('client', user);
         return response.data;
