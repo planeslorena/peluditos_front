@@ -15,39 +15,32 @@ export function CardService() {
       </div>
 
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-            <div className="card shadow" style={{ width: '340px', height: '110px', background: '#f3f1f0ff' }}>
-              <div className="card-body d-flex justify-content-center align-items-center">
-                <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
-                  <FontAwesomeIcon icon={faHeart} style={{ color: '#400203', fontSize: '32px' }} className="me-2" />
-                  Asesoramiento en cuidado y bienestar
-                </h5>
-              </div>
-            </div>
+        <div className="row justify-content-around">
+          <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-2 m-3">
+            <FontAwesomeIcon icon={faHeart} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
+            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+              Asesoramiento 
+              <br />en cuidado
+              <br />y bienestar
+            </h5>
           </div>
 
-          <div className="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-            <div className="card shadow" style={{ width: '340px', height: '110px', background: '#f3f1f0ff' }}>
-              <div className="card-body d-flex justify-content-center align-items-center">
-                <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }}>
-                  <FontAwesomeIcon icon={faBathtub} style={{ color: '#400203', fontSize: '32px' }} className="me-2" />
-                  Baños higiénicos
-                </h5>
-              </div>
-            </div>
+          <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-2 m-3">
+            <FontAwesomeIcon icon={faBathtub} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
+            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+              Baños 
+              <br />higiénicos
+            </h5>
           </div>
 
-          <div className="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center "  >
-            <div className="card shadow" style={{ width: '340px', height: '110px', background: '#f3f1f0ff' }} >
-              <div className="card-body d-flex justify-content-center align-items-center">
-                <h5 className="card-title text-center d-flex flex-column " style={{ color: '#400203' }}>
-                  <FontAwesomeIcon icon={faScissors} style={{ color: '#400203', fontSize: '32px' }} className="me-2" />
-                  Corte y estilismo profesional
-                </h5>
-              </div>
-            </div>
+          <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-3 m-3">
+            <FontAwesomeIcon icon={faScissors} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
+            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+              Corte y
+              <br /> estilismo profesional
+            </h5>
           </div>
+          
         </div>
       </div>
 

@@ -12,8 +12,7 @@ export function InfoPoly() {
                             <img
                                 src="/images/poly.png"
                                 alt="Perro en baño de burbujas"
-                                className="img-fluid"
-                                style={{ width: '350px', height: 'auto', zIndex: 1 }}
+                                className="img-fluid img-poly"
                             />
                         </div>
 

@@ -8,3 +8,24 @@
     font-size: 20px;
     color: #400203;
 }
+
+.img-poly {
+    width: 60%;
+    height: 60vh;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+    .text-infopoly {
+        font-size: 16px;
+    }
+
+    .title-info {
+        font-size: 25px;
+    }
+
+    .img-poly {
+        width: 50%;
+        height: 35vh;
+    }
+}

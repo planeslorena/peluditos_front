@@ -57,10 +57,10 @@ export default function ConfirmarTurno(props: any) {
                     {`Hora: ${turnoData?.hora}`}
                 </p>
                 <p className="font-text text-center">
-                    {'Mascota: ' + turnoData?.mascota}
+                    {'Mascota: ' + turnoData?.mascota.nombre}
                 </p>
                 <p className="font-text text-center">
-                    {'Peluquero/a: ' + turnoData?.peluquera}
+                    {'Peluquero/a: ' + turnoData?.peluquera.nombre}
                 </p>
                 <button
                     className="btn-style rounded my-2 col-12 mx-auto"

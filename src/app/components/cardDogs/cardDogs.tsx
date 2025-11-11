@@ -5,7 +5,7 @@ export function CardDogs() {
     './images/perro1.png',
     './images/perro2.png',
     './images/perro2.png',
-    
+
   ];
 
   return (
@@ -15,10 +15,10 @@ export function CardDogs() {
       </div>
 
       <div className="container">
-        <div className="row">
+        <div className="row d-flex justify-content-around">
           {dogImages.map((src, index) => (
-            <div key={index} className=" col-6 col-sm-6 col-md-4 col-lg-4 mb-4">
-              <img
+            <div key={index} className="col-3 col-sm-6 col-md-4 col-lg-3 p-4 m-2 shadow rounded">
+              <img  
                 src={src}
                 className="img-fluid"
                 alt={`Cliente perro ${index + 1}`}
@@ -28,6 +28,7 @@ export function CardDogs() {
                   borderRadius: '10px'
                 }}
               />
+              <p className="title-name text-center mt-4">Lola</p>
             </div>
           ))}
         </div>

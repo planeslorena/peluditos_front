@@ -79,7 +79,7 @@ export default function FormAgregarMascota(props: any) {
             tel_veterinario: data.tel_veterinario,
             direccion_veterinario: data.direccion_veterinario,
             observaciones: data.observaciones,
-            duenio: userData?.dni
+            duenio: userData?.id_cliente
         };
         const resp = await createMascota(mascota);
 

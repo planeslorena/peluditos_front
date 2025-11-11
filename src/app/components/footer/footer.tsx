@@ -12,7 +12,7 @@ export function Footer() {
                 <div className="container">
                     <div >
                         <img
-                            src="/images/logo-peluditos-8.png"
+                            src="/images/logo-peluditos-transp.png"
                             alt="Logo Peluditos"
                             className="footer-logo"
                         />
