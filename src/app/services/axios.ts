@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const createClient = () => {
   const client = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL
+    baseURL: 'http://72.61.48.155:8080/'
   });
   return client;
 }
