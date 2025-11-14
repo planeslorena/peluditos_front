@@ -1,12 +1,7 @@
 "use client";
+import './cardDogs.css'
 
 export function CardDogs() {
-  const dogImages = [
-    './images/perro1.png',
-    './images/perro2.png',
-    './images/perro2.png',
-
-  ];
 
   return (
     <>
@@ -16,21 +11,26 @@ export function CardDogs() {
 
       <div className="container">
         <div className="row d-flex justify-content-around">
-          {dogImages.map((src, index) => (
-            <div key={index} className="col-3 col-sm-6 col-md-4 col-lg-3 p-4 m-2 shadow rounded">
-              <img  
-                src={src}
-                className="img-fluid"
-                alt={`Cliente perro ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: '10px'
-                }}
-              />
-              <p className="title-name text-center mt-4">Lola</p>
-            </div>
-          ))}
+          <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center align-items-center shadow rounded card card-dog p-2 m-2">
+            <img
+              src="/images/badu.jpeg"
+              className="img-fluid img-perros rounded"
+              alt={`badu`}
+            />
+          </div>
+          <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center align-items-center shadow rounded card card-dog p-2 m-2">
+            <img
+              src="/images/puki.jpeg"
+              className="img-fluid img-perros rounded"
+              alt={`badu`}
+            />
+          </div>
+          <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center align-items-center shadow rounded card card-dog p-2 m-2">
+            <img
+              src="/images/olivia.jpeg"
+              className="img-fluid img-perros rounded"
+            />
+          </div>
         </div>
       </div>
     </>

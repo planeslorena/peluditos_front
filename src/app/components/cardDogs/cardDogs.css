@@ -1,0 +1,27 @@
+.card-dog {
+    height: 450px;
+    background-color: #f3f1f0ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-dog:hover {
+    transform: scale(1.05);
+    /* efecto zoom suave */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* sombra más marcada al pasar el mouse */
+}
+
+.img-perros {
+    width: 95%;
+    height: 95%;
+}
+
+@media (max-width: 768px) {
+    .container-perros {
+        width: 70%;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+}
