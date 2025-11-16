@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const createClient = () => {
   const client = axios.create({
-    baseURL: 'https://peluditospoly.com.ar/api'
+    baseURL: 'http://localhost:8080'//'https://peluditospoly.com.ar/api'
   });
   return client;
 }

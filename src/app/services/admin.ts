@@ -30,9 +30,9 @@ export const getTurnosDisponibles = async ({day}: {day: string}): Promise<any> =
     }
 }
 
-export const IsDiaNoDisponible = async (day: Date): Promise<any> => {
+export const IsDiaNoDisponible = async (from: Date, to: Date): Promise<any> => {
     try {        
-        const response: AxiosResponse<any, any> = await clientAxios.get('turnos/diasNoDisponibles',{params: {day}});
+        const response: AxiosResponse<any, any> = await clientAxios.get('turnos/diasNoDisponibles',{params: {from,to}});
         return response.data;
     } catch (error) {
         console.log(error);

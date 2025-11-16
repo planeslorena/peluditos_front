@@ -19,21 +19,14 @@ export default function Calendario(props: any) {
     const fechaMinima = moment(new Date()).add(1, 'days').toDate();
     const fechaMaxima = moment(new Date()).add(30, 'days').toDate();
     const [diasNoDisponibles, setDiasNoDisponibles] = useState<string[]>([]);
+    const [sinDia, setSinDia] = useState<string>();
 
     // Función para obtener los días no disponibles
     const obtenerDiasNoDisponibles = async () => {
-        const dias = [];
-        let currentDate = new Date(fechaMinima);
+        const fechaMin = new Date(fechaMinima);
+        const fechaMax = new Date(fechaMaxima)
+        const dias = await IsDiaNoDisponible(fechaMin, fechaMax);;
 
-        while (currentDate <= fechaMaxima) {
-            const dia = new Date(currentDate);
-            const esNoDisponible = await IsDiaNoDisponible(dia);
-            if (esNoDisponible) {
-                dias.push(moment(dia).format('YYYY-MM-DD'));
-            }
-            // Incrementar la fecha en 1 día
-            currentDate.setDate(currentDate.getDate() + 1);
-        }
         setDiasNoDisponibles(dias);
     }
 
@@ -47,8 +40,12 @@ export default function Calendario(props: any) {
     }
 
     const guardarDia = () => {
-        setMostrarCalendario(false);
-        setMostrarHorarios(true);
+        if (value) {
+            setMostrarCalendario(false);
+            setMostrarHorarios(true);
+        } else {
+            setSinDia('Debe seleccionar un día');
+        }
     }
 
     useEffect(() => {
@@ -61,6 +58,7 @@ export default function Calendario(props: any) {
             dia: value,
         }
         setTurnoData(turnoDataNew);
+        setSinDia("");
     }, [value]);
 
     return (
@@ -88,6 +86,7 @@ export default function Calendario(props: any) {
             >
                 Siguiente
             </button>
+            <small>{sinDia}</small>
         </div>
     );
 }
