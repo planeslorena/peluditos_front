@@ -29,8 +29,7 @@ export default function Usuario(props: any) {
   const [mostrarFormRegistrarse, setMostrarFormRegistrarse] = useState(false);
 
   const irAtras = () => {
-    setMostrarUsuario(false);
-    setMostrarHorarios(true);
+    router.push("/home");
   }
 
   const onSubmit: SubmitHandler<Data> = async (data) => {

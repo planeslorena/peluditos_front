@@ -5,7 +5,7 @@ import './horarios.css'
 import { getTurnosDisponibles } from '@/app/services/admin';
 
 export default function Horarios(props: any) {
-    const { setMostrarCalendario, setMostrarHorarios, setMostrarUsuario }: { setMostrarCalendario: Function, setMostrarHorarios: Function, setMostrarUsuario: Function } = props;
+    const { setMostrarCalendario, setMostrarHorarios, setMostrarConfirmarTurno }: { setMostrarCalendario: Function, setMostrarHorarios: Function, setMostrarConfirmarTurno: Function } = props;
     const { turnoData, setTurnoData } = useContext(TurnoContext);
     const [horariosDisp, setHorariosDisp] = useState<any[]>([]);
 
@@ -21,7 +21,7 @@ export default function Horarios(props: any) {
             peluquera: { id_peluquera: horario.peluquera.id_peluquera, nombre: horario.peluquera.nombre },
         })
         setMostrarHorarios(false);
-        setMostrarUsuario(true);
+        setMostrarConfirmarTurno(true);
     }
 
     const irAtras = () => {
@@ -42,7 +42,7 @@ export default function Horarios(props: any) {
             <div className="d-flex flex-column align-items-center justify-content-center mb-3">
                 <p className="font-text h5 text-center">Horarios disponibles</p>
                 <p className="font-text text-center">
-                    {turnoData?.dia.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}
+                    {'Turno para: ' + turnoData?.mascota.nombre + ' el ' + turnoData?.dia.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}
                 </p>
 
                 {horariosDisp.map((horario: any, index: number) => {

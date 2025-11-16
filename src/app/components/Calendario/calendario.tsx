@@ -12,14 +12,18 @@ type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Calendario(props: any) {
-    const { setMostrarCalendario, setMostrarHorarios }: { setMostrarCalendario: Function, setMostrarHorarios: Function } = props;
+    const { setMostrarMascotas, setMostrarCalendario, setMostrarHorarios }: { setMostrarMascotas: Function, setMostrarCalendario: Function, setMostrarHorarios: Function } = props;
     const [value, onChange] = useState<Value>();
     const { turnoData, setTurnoData } = useContext(TurnoContext);
-
     const fechaMinima = moment(new Date()).add(1, 'days').toDate();
     const fechaMaxima = moment(new Date()).add(30, 'days').toDate();
     const [diasNoDisponibles, setDiasNoDisponibles] = useState<string[]>([]);
     const [sinDia, setSinDia] = useState<string>();
+
+    const irAtras = () => {
+        setMostrarCalendario(false);
+        setMostrarMascotas(true);
+    }
 
     // Función para obtener los días no disponibles
     const obtenerDiasNoDisponibles = async () => {
@@ -62,31 +66,35 @@ export default function Calendario(props: any) {
     }, [value]);
 
     return (
-        <div className="d-flex flex-column align-items-center justify-content-center calendario-box">
-            <p className="font-text h5 text-center">Reserve aquí su turno</p>
-            <p className="font-text text-center">Seleccione un día</p>
-            <Calendar
-                className="mi-calendario"
-                locale="es-ES"
-                value={value}
-                onChange={onChange}
-                minDate={fechaMinima}
-                maxDate={fechaMaxima}
-                //Si el dia no tiene turnos disponibles lo deshabilita
-                tileDisabled={({ date }) => isDateDisabled(date)}
-                //SI el dia tiene turnos disponibles le pone un estilo especial
-                tileClassName={({ date }) => {
-                    const isDiaNoDisponible = isDateDisabled(date)
-                    return isDiaNoDisponible ? '' : 'dia-disponible';
-                }}
-            />
-            <button
-                className="btn-style rounded p-1 m-3 my-3 d-grid gap-2 col-6 mx-auto"
-                onClick={() => guardarDia()}
-            >
-                Siguiente
-            </button>
-            <small>{sinDia}</small>
-        </div>
+        <>
+            <div className='d-flex flex-column align-items-start justify-content-start w-100'>
+                <i className="bi bi-arrow-left" onClick={irAtras}></i>
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-center calendario-box">
+                <p className="font-text h5 text-center">Reserve aquí su turno para: <br />{turnoData?.mascota.nombre}</p>
+                <Calendar
+                    className="mi-calendario"
+                    locale="es-ES"
+                    value={value}
+                    onChange={onChange}
+                    minDate={fechaMinima}
+                    maxDate={fechaMaxima}
+                    //Si el dia no tiene turnos disponibles lo deshabilita
+                    tileDisabled={({ date }) => isDateDisabled(date)}
+                    //SI el dia tiene turnos disponibles le pone un estilo especial
+                    tileClassName={({ date }) => {
+                        const isDiaNoDisponible = isDateDisabled(date)
+                        return isDiaNoDisponible ? '' : 'dia-disponible';
+                    }}
+                />
+                <button
+                    className="btn-style rounded p-1 m-3 my-3 d-grid gap-2 col-6 mx-auto"
+                    onClick={() => guardarDia()}
+                >
+                    Siguiente
+                </button>
+                <small>{sinDia}</small>
+            </div>
+        </>
     );
 }

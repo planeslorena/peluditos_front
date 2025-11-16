@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 
 export default function ConfirmarTurno(props: any) {
-    const { setMostrarMascotas, setMostrarConfirmarTurno }: { setMostrarMascotas: Function, setMostrarConfirmarTurno: Function } = props;
+    const { setMostrarHorarios, setMostrarConfirmarTurno }: { setMostrarHorarios: Function, setMostrarConfirmarTurno: Function } = props;
     const { turnoData, setTurnoData } = useContext(TurnoContext);
     const router = useRouter();
 
@@ -40,7 +40,7 @@ export default function ConfirmarTurno(props: any) {
 
     const irAtras = () => {
         setMostrarConfirmarTurno(false);
-        setMostrarMascotas(true);
+        setMostrarHorarios(true);
     }
 
     return (

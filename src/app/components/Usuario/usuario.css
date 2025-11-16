@@ -24,3 +24,7 @@ input[type=number] { -moz-appearance:textfield; }
 .text-registrarse {
     cursor: pointer;
 }
+
+.bi-arrow-left {
+    cursor: pointer;
+}

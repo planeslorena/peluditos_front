@@ -2,8 +2,8 @@
   /* Caja del calendario */
   .calendario-box {
     background: #f2e0d5;
-    margin: 2rem;
-    padding: 2rem;
+    margin: 1rem;
+    padding: 1rem;
     border-radius: 20px;
     /*box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);*/
     text-align: center;
@@ -11,18 +11,6 @@
     max-width: 400px;
   }
   
-  /* Títulos */
-  .calendario-titulo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .calendario-subtitulo {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1rem;
-  }
   
   /* Botón */
   .btn-siguiente {
