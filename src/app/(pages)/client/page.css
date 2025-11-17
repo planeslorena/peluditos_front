@@ -1,4 +1,21 @@
 .turnero {
-    background-color: #f2e0d5/*#cd9f85*/;
-    box-shadow: 2px 2px 10px #b3c2c8;
+    --background-color: #f2e0d5;
+    --box-shadow:2px 2px 10px #b3c2c8;
+    background-color:var(--background-color);
+    box-shadow: var(--box-shadow);
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .icon-service {
+    --color-icon: #af7172;
+  }
+  .turnero{
+    --background-color: #303030;
+    --box-shadow:2px 2px 10px #414141;
+
+  }
+  .text-service{
+      --color-text: #f2e0d5;
+  }
 }

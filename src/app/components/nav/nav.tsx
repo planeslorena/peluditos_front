@@ -13,12 +13,12 @@ export function Menu() {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-light">
+      <Navbar expand="lg" className="bg-light nav-bar">
         <Container fluid>
-          <div className="d-flex align-items-center justify-content-between w-100">
+          <div className="d-flex align-items-center justify-content-between w-100 ">
             <Navbar.Brand onClick={handleClickHome}>
               <img
-                src="/images/logo-peluditos.png"
+                src="/images/logo-peluditos2.png"
                 className="img-fluid img-logo"
                 alt="Logo Peluditos"
                 onClick={() => { router.push('/home') }}

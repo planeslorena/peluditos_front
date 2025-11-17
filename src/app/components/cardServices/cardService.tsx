@@ -17,8 +17,8 @@ export function CardService() {
       <div className="container">
         <div className="row justify-content-around">
           <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-2 m-3">
-            <FontAwesomeIcon icon={faHeart} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
-            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+            <FontAwesomeIcon icon={faHeart} className="m-3 icon-service" />
+            <h5 className="card-title text-center d-flex flex-column font-text" >
               Asesoramiento 
               <br />en cuidado
               <br />y bienestar
@@ -26,16 +26,16 @@ export function CardService() {
           </div>
 
           <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-2 m-3">
-            <FontAwesomeIcon icon={faBathtub} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
-            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+            <FontAwesomeIcon icon={faBathtub} className="m-3 icon-service" />
+            <h5 className="card-title text-center d-flex flex-column font-text" >
               Baños 
               <br />higiénicos
             </h5>
           </div>
 
           <div className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center card shadow p-3 m-3">
-            <FontAwesomeIcon icon={faScissors} style={{ color: '#400203', fontSize: '32px' }} className="m-3" />
-            <h5 className="card-title text-center d-flex flex-column" style={{ color: '#400203' }} >
+            <FontAwesomeIcon icon={faScissors} className="m-3 icon-service" />
+            <h5 className="card-title text-center d-flex flex-column font-text" >
               Corte y
               <br /> estilismo profesional
             </h5>

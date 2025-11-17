@@ -1,15 +1,32 @@
 .text-service {
+  --color-text: #400203;
   font-family: var(--font-categoria);
-  color: #400203;
+  color: var(--color-text);
 }
 
-.color-icon {
-  color: #400203;
+.icon-service {
+  --color-icon: #400203;
+  color:var(--color-icon);
+  font-size: 32px;
 }
 
 .card {
-  background-color: #f3f1f0ff;
+  --background-color: #f3f1f0ff;
+  background-color: var(--background-color);
   width: 25%;
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .icon-service {
+    --color-icon: #af7172;
+  }
+  .card{
+    --background-color: #303030;
+  }
+  .text-service{
+      --color-text: #f2e0d5;
+  }
 }
 
 /* Ajuste para dispositivos móviles */

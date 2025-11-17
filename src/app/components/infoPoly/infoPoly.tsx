@@ -6,7 +6,7 @@ export function InfoPoly() {
     return (
         <section id='nosotros'>
             <div className='row my-5 py-5'>
-                <div className="container-fluid py-5 " style={{ background: '#f2e0d5' }}>
+                <div className="container-fluid py-5 container-info-poly">
                     <div className="row align-items-center" >
                         <div className="col-md-5 text-center mb-2 mb-md-0">
                             <img
@@ -17,8 +17,8 @@ export function InfoPoly() {
                         </div>
 
                         <div className="col-md-7 text-white">
-                            <h3 className="title-info text-center">¡Hola, soy Poly!</h3>
-                            <p className='text-infopoly p-3'>Mi misión es brindar un servicio personalizado que combine amor, dedicación y técnica para cada peludito que pasa por mis manos.
+                            <h3 className="title-info title-name text-center">¡Hola, soy Poly!</h3>
+                            <p className='text-infopoly font-text p-3'>Mi misión es brindar un servicio personalizado que combine amor, dedicación y técnica para cada peludito que pasa por mis manos.
 
                                 En Peluditos  no solo me enfoco en embellecer a tu mascota, sino en comprender sus necesidades específicas. Mi experiencia como Groomer y mis capacitaciones constantes me permiten adaptarme a diferentes mantos, razas y personalidades, asegurando que cada corte y cuidado sea perfecto para ellos.
 

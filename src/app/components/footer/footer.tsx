@@ -38,7 +38,7 @@ export function Footer() {
                         </a>
                     </div>
                     <div className='border-top mt-3'>
-                    <p className='mt-3' >© 2025 Peluditos Poly. Todos los derechos reservados.
+                    <p className='mt-3 font-text' >© 2025 Peluditos Poly. Todos los derechos reservados.
                         <br /> Creado por TuWeb Studio
                     </p>
                     </div>

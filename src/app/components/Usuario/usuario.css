@@ -28,3 +28,9 @@ input[type=number] { -moz-appearance:textfield; }
 .bi-arrow-left {
     cursor: pointer;
 }
+
+@media (prefers-color-scheme: dark) {
+  .bi-arrow-left {
+    color: #f2e0d5; /* modo oscuro */
+  }
+}

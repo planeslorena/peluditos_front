@@ -1,17 +1,27 @@
 .title-info {
     font-family: var(--font-categoria);
     font-size: 50px;
-    color: #400203;
 }
 
 .text-infopoly {
     font-size: 20px;
-    color: #400203;
 }
 
 .img-poly {
     width: 60%;
     height: 50vh;
+}
+
+.container-info-poly {
+  --background: #f2e0d5;    /* Modo claro */
+  background: var(--background);
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .container-info-poly {
+    --background: #303030;
+  }
 }
 
 /* Ajuste para dispositivos móviles */

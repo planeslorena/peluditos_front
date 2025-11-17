@@ -6,8 +6,10 @@
 }
 
 .table-admin-thead {
-    background: #f2e0d5;
-    color: #400203;
+    --background-color: #f2e0d5;
+    --color: #400203;
+    background: var(--background-color);
+    color: var(--color);
 }
 
 .table-admin-th {
@@ -64,6 +66,23 @@ tr:nth-child(even) {
 .icon-trash {
     font-size: 20px !important;
 }
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+    .table-admin-thead {
+        --background-color: #af7172;
+        --color: #f2e0d5;
+    }
+
+    tr:nth-child(even) {
+        background: rgb(65, 65, 65, 0.7);
+    }
+    .table-admin-container{
+        color:#f2e0d5;
+    }
+}
+
+
 
 /* Ajustes para dispositivos móviles */
 @media screen and (max-width: 768px) {

@@ -1,7 +1,8 @@
 
   /* Caja del calendario */
   .calendario-box {
-    background: #f2e0d5;
+    --background-color: #f2e0d5;
+    background: var(--background-color);
     margin: 1rem;
     padding: 1rem;
     border-radius: 20px;
@@ -33,8 +34,8 @@
   .mi-calendario {
     border: none;
     font-size: 0.95rem;
-    background-color:#f2e0d5 ;
-  }
+    --background-color: #f2e0d5;
+    background-color: var(--background-color);  }
   
   .react-calendar {
     width: 100%;
@@ -78,7 +79,8 @@
 
 
   .mi-calendario button[disabled] {
-    background-color: #f2e0d5;
+    --background-color: #f2e0d5;
+    background-color: var(--background-color);
     color: #999;
     cursor: not-allowed;
     opacity: 1;
@@ -121,4 +123,23 @@
     justify-content: center !important;
     margin: auto !important;
     width: 90% !important;
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .icon-service {
+    --color-icon: #af7172;
+  }
+  .calendario-box{
+    --background-color: #303030;
+  }
+  .mi-calendario{
+    --background-color: #303030;
+  }
+  .mi-calendario button[disabled] {
+    --background-color: #303030;
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    color: #f2e0d5; /* modo oscuro */
+  }
 }

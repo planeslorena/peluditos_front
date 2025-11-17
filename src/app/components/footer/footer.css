@@ -1,5 +1,6 @@
 .footer {
-  background-color: #FAEEE7;
+  --background-color:#FAEEE7;
+  background-color: var(--background-color);
 }
 
 .footer-logo {
@@ -21,6 +22,16 @@
 .social-icon:hover {
   transform: scale(1.1);
   color: #6e0c0c;
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .footer{
+    --background-color: #303030;
+  }
+  .text-service{
+      --color-text: #f2e0d5;
+  }
 }
 
 @media (max-width: 576px) {
