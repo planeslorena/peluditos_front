@@ -16,7 +16,7 @@ export default function Calendario(props: any) {
     const [value, onChange] = useState<Value>();
     const { turnoData, setTurnoData } = useContext(TurnoContext);
     const fechaMinima = moment(new Date()).add(1, 'days').toDate();
-    const fechaMaxima = moment(new Date()).add(30, 'days').toDate();
+    const fechaMaxima = moment(new Date()).add(1, 'days').toDate();
     const [diasNoDisponibles, setDiasNoDisponibles] = useState<string[]>([]);
     const [sinDia, setSinDia] = useState<string>();
 
