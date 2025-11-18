@@ -70,8 +70,11 @@ export default function Calendario(props: any) {
             <div className='d-flex flex-column align-items-start justify-content-start w-100'>
                 <i className="bi bi-arrow-left" onClick={irAtras}></i>
             </div>
+            <p className="font-text h5 text-center m-1"> Proximamente se habilitarán los turnos! </p>
+                <p className="font-text h5 text-center m-1">Estate atento a nuestra redes sociales.</p> 
+                <p className="font-text h5 text-center m-1">Peluditos</p>
             <div className="d-flex flex-column align-items-center justify-content-center calendario-box">
-                <p className="font-text h5 text-center">Reserve aquí su turno para: <br />{turnoData?.mascota.nombre}</p>
+                {/*<p className="font-text h5 text-center">Reserve aquí su turno para: <br />{turnoData?.mascota.nombre}</p>*/}
                 <Calendar
                     className="mi-calendario"
                     locale="es-ES"
