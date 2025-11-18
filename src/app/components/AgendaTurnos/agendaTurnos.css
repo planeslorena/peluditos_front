@@ -49,16 +49,35 @@
     background-color: #f9f6f4;
     color: #400203;
 }
+
 .table-admin-td.clickable {
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
 }
 
 .table-admin-td.clickable:hover {
-  background-color: #f2e0d5;
-  color: #400203;
-  font-weight: bold;
+    background-color: #f2e0d5;
+    color: #400203;
+    font-weight: bold;
 }
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+    .table-agenda td.fw-bold {
+        color: #f2e0d5;
+        background-color: #af7172
+    }
+
+    .table-agenda thead {
+        background: #af7172;
+        color: #f2e0d5;
+    }
+
+    .table-admin-td.ocupado {
+        color: #f2e0d5;
+    }
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
 

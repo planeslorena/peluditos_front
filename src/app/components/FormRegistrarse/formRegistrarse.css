@@ -12,5 +12,14 @@ input[type=number] { -moz-appearance:textfield; }
 
 .form-control{
     background-color: #f0f0f0 !important;
+}
 
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .footer{
+    --background-color: #303030;
+  }
+  .container{
+      color: #f2e0d5;
+  }
 }

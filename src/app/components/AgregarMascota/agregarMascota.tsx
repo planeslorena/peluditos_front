@@ -40,23 +40,23 @@ export default function AgregarMascota(props: any) {
                     {mostrarRequisitos &&
                         <div>
                             <div className='d-flex flex-row align-items-start'>
-                                <FontAwesomeIcon className="m-1" icon={faPaw} size="lg" style={{ color: "#400203", }} />
+                                <FontAwesomeIcon className="m-1 i-patita" icon={faPaw} size="lg" />
                                 <p className='font-text m-1'>Venir con correa y pretal</p>
                             </div>
                             <div className='d-flex flex-row align-items-start'>
-                                <FontAwesomeIcon className="m-1" icon={faPaw} size="lg" style={{ color: "#400203", }} />
+                                <FontAwesomeIcon className="m-1 i-patita" icon={faPaw} size="lg" />
                                 <p className='font-text m-1'>Libreta sanitaria actualizada: vacunas anuales de rabia y séxtuple.</p>
                             </div>
                             <div className='d-flex flex-row align-items-start'>
-                                <FontAwesomeIcon className="m-1" icon={faPaw} size="lg" style={{ color: "#400203", }} />
+                                <FontAwesomeIcon className="m-1 i-patita" icon={faPaw} size="lg"/>
                                 <p className='font-text m-1'>Desparacitación cada 6 meses.</p>
                             </div>
                             <div className='d-flex flex-row align-items-start'>
-                                <FontAwesomeIcon className="m-1" icon={faPaw} size="lg" style={{ color: "#400203", }} />
+                                <FontAwesomeIcon className="m-1 i-patita" icon={faPaw} size="lg"/>
                                 <p className='font-text m-1'>SI se encuentra con tratamiento antipulgas o garrapatas: pipeta o pastilla aplicar 5 días antes del baño.</p>
                             </div>
                             <div className='d-flex flex-row align-items-start'>
-                                <FontAwesomeIcon className="m-1" icon={faPaw} size="lg" style={{ color: "#400203", }} />
+                                <FontAwesomeIcon className="m-1 i-patita" icon={faPaw} size="lg"/>
                                 <p className='font-text m-1'>Puntualidad: avisar con 24 hs de antelación si no puede asistir, de lo contrario se cobrará el servicio completo.</p>
                             </div>
                         </div>}

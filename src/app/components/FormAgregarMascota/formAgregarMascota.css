@@ -7,3 +7,14 @@
 .form-control:focus {
     background-color: #e0e0e0;
 }
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .modal-content{
+    background-color: #303030 !important;
+  }
+  .pet-form{
+      color: #f2e0d5;
+  }
+}
+

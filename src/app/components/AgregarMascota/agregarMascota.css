@@ -1,3 +1,14 @@
 .bi-arrow-left{
     font-size: 2rem;
 }
+
+.i-patita {
+    color: #400203
+}
+
+/*Ajustes modo dark*/
+@media (prefers-color-scheme: dark) {
+  .i-patita{
+      color: #af7172;
+  }
+} 
