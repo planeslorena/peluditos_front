@@ -73,7 +73,7 @@ export default function FormAgregarMascota(props: any) {
             edad: data.edad,
             castrado: data.castrado,
             desparasitado: data.desparasitado,
-            antirabica: data.vacuna_rabia,
+            antirrabica: data.vacuna_rabia,
             sextuple: data.vacuna_sextuple,
             veterinario: data.veterinario,
             tel_veterinario: data.tel_veterinario,
