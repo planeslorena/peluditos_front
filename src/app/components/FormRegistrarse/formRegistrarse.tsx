@@ -61,7 +61,13 @@ export default function FormRegistrarse(props: any) {
         text: "Ya podes empezar a disfrutar de nuestros servicios!",
         icon: "success"
       });
-      setUserData(cliente);
+      const id_newCliente = resp.raw.insertId;
+
+      const newCliente = {
+        ...cliente,
+        id_cliente: id_newCliente,
+      }
+      setUserData(newCliente);
       setMostrarUsuario(false);
       setMostrarFormRegistrarse(false);
       setMostrarFormLogin(true);

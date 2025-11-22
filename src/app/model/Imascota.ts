@@ -2,6 +2,7 @@ import { ICliente } from "./ICliente";
 
 export interface Imascota {
     id_mascota: number;
+    num_mascota: number | null;
     nombre: string;
     raza: string;
     edad: number;

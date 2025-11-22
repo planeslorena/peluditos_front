@@ -35,7 +35,7 @@ const columnsClient = [
 const columnsMascotas = [
   {
     header: "N° de Mascota",
-    accessorKey: "id_mascota",
+    accessorKey: "num_mascota",
   },
   {
     header: "Nombre",

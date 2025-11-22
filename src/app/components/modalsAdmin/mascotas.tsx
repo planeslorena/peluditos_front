@@ -14,6 +14,12 @@ import { createMascota, updateMascota } from '@/app/services/client';
 const schema = yup.object().shape({
     //Datos de la mascota
     nombre: yup.string().required('El nombre de la mascota es requerido'),
+    num_mascota: yup.string()
+        .required('La numero de mascota es requerido')
+        .matches(/^\d+$/, 'El numero debe ser un número')
+        .test('positive', 'El numero debe ser positivo', value =>
+            value ? parseInt(value) > 0 : true
+        ),
     raza: yup.string().required('La raza es requerida'),
     edad: yup.string()
         .required('La edad es requerida')
@@ -80,6 +86,7 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
         return {
             ...data,
             id_mascota: data.id_mascota ? Number(data.id_mascota) : null,
+            num_mascota: data.num_mascota ? Number(data.num_mascota) : null,
             edad: Number(data.edad),
             observaciones: data.observaciones == "" ? null : data.observaciones,
             shampoo: data.shampoo == "" ? null : data.shampoo,
@@ -97,7 +104,7 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
 
     const onSubmit: SubmitHandler<Imascota> = async (newData) => {
         const newMascota = normalizeData(newData);
-        
+
         if (action == 'Agregar') {
             const resp = await createMascota(newMascota);
 
@@ -168,16 +175,29 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
                 <input defaultValue={data?.id_mascota} disabled hidden
                     {...register('id_mascota')} />
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-group mb-2">
-                        <label>Nombre de la mascota</label>
-                        <input
-                            type="text"
-                            readOnly={action === 'Ver'}
-                            defaultValue={data?.nombre}
-                            className={`form-control ${errors.nombre ? 'is-invalid' : ''}`}
-                            {...register('nombre')}
-                        />
-                        {errors.nombre && <div className="invalid-feedback">{errors.nombre.message}</div>}
+                    <div className='row mb-2'>
+                        <div className="col">
+                            <label>Numero de mascota</label>
+                            <input
+                                type="number"
+                                readOnly={action === 'Ver'}
+                                defaultValue={data?.num_mascota}
+                                className={`form-control ${errors.num_mascota ? 'is-invalid' : ''}`}
+                                {...register('num_mascota')}
+                            />
+                            {errors.num_mascota && <div className="invalid-feedback">{errors.num_mascota.message}</div>}
+                        </div>
+                        <div className="col">
+                            <label>Nombre de la mascota</label>
+                            <input
+                                type="text"
+                                readOnly={action === 'Ver'}
+                                defaultValue={data?.nombre}
+                                className={`form-control ${errors.nombre ? 'is-invalid' : ''}`}
+                                {...register('nombre')}
+                            />
+                            {errors.nombre && <div className="invalid-feedback">{errors.nombre.message}</div>}
+                        </div>
                     </div>
 
                     <div className='row mb-2'>
