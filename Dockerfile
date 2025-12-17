@@ -2,7 +2,9 @@
 FROM node:20-alpine AS base
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm cache clean --force
+RUN npm config set registry https://registry.npmjs.org/
+RUN npm ci --no-audit --no-fund
 
 # Etapa de build
 FROM base AS builder
