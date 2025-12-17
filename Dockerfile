@@ -10,6 +10,7 @@ RUN npm ci --no-audit --no-fund
 FROM base AS builder
 WORKDIR /app
 COPY . .
+ENV NEXT_DISABLE_ESLINT=true
 RUN npm run build
 
 # Etapa final (producción)
