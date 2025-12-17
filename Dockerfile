@@ -25,4 +25,4 @@ COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
 
 # Comando para iniciar la app en modo producción
-CMD ["npm", "run", "start"]
+CMD ["npx", "next", "start", "-H", "0.0.0.0", "-p", "3000"]
