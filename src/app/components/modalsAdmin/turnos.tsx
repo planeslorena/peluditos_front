@@ -229,13 +229,13 @@ export const ModalTurno: React.FC<ModalProps> = ({
                                     value={mascotas
                                         .map((m) => ({
                                             value: m.id_mascota,
-                                            label: `${m.nombre} - ${m.duenio?.nombre}`,
+                                            label: `${m.num_mascota} - ${m.nombre} - ${m.duenio?.nombre}`,
                                         }))
                                         .find((opt) => opt.value === field.value) || null}
                                     onChange={(selected) => field.onChange(selected?.value || '')}
                                     options={mascotas.map((m) => ({
                                         value: m.id_mascota,
-                                        label: `${m.nombre} - ${m.duenio?.nombre}`,
+                                        label: `${m.num_mascota} - ${m.nombre} - ${m.duenio?.nombre}`,
                                     }))}
                                     placeholder="Seleccione o busque una mascota..."
                                     isSearchable
