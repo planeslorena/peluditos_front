@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createTurno, deleteTurno, getAllMascotas } from '@/app/services/client';
-import { getPeluqueras } from '@/app/services/admin';
+import { deshabilitarTurno, getPeluqueras } from '@/app/services/admin';
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
 
@@ -14,7 +14,7 @@ const schema = yup.object().shape({
     dia: yup.string().required('Debe seleccionar una fecha'),
     hora: yup.string().required('Debe ingresar un horario'),
     peluquera: yup.number().required('Debe seleccionar una peluquera'),
-    mascota: yup.number().required('Debe seleccionar una mascota'),
+    mascota: yup.string().required('Debe seleccionar una mascota'),
 });
 
 interface ModalProps {
@@ -23,7 +23,7 @@ interface ModalProps {
     updateAgenda: () => void;
     defaultData?: {
         id_turno?: number;
-        dia?: string;
+        dia: string | null;
         hora?: string;
         peluquera?: { id_peluquera: number };
         mascota?: { id_mascota: number, nombre: string, duenio?: { nombre: string } };
@@ -132,6 +132,38 @@ export const ModalTurno: React.FC<ModalProps> = ({
         });
     }
 
+    const deshabilitaTurno = async (turnoADeshabilitar :any) => {
+        Swal.fire({
+            title: "Advertencia",
+            text: `Estas seguro de que quieres deshabilitar el turno?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirmar",
+            cancelButtonText: "Cancelar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const resp = await deshabilitarTurno(turnoADeshabilitar);
+                if (resp == 201) {
+                    Swal.fire({
+                        title: `Deshabilitar turno`,
+                        text: `El turno fue deshabilitado con exito!`,
+                        icon: "success"
+                    });
+                    updateAgenda();
+                    handleClose();
+                } else {
+                    Swal.fire({
+                        title: `${resp}`,
+                        text: `No se pudo deshabilitar el turno`,
+                        icon: "error"
+                    });
+                }
+            }
+        });
+    }
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -220,10 +252,25 @@ export const ModalTurno: React.FC<ModalProps> = ({
                     </div>
 
                     {action !== 'ver' &&
-                        <div className="d-flex justify-content-end mt-3">
-                            <button type="submit" className="btn-style">
-                                Asignar turno
-                            </button>
+                        <div className='d-flex flex-row justify-content-between my-3'>
+                            <div>
+                                <button
+                                    type="button"
+                                    className="btn-style"
+                                    onClick={() => deshabilitaTurno(
+                                        {
+                                            dia: defaultData?.dia,
+                                            hora: defaultData?.hora,
+                                            peluquera: { id_peluquera: defaultData?.peluquera?.id_peluquera }
+                                        })}>
+                                    Deshabilitar turno
+                                </button>
+                            </div>
+                            <div>
+                                <button type="submit" className="btn-style">
+                                    Asignar turno
+                                </button>
+                            </div>
                         </div>
                     }
                     {action === 'ver' &&

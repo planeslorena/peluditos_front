@@ -13,9 +13,9 @@ export default function ConfirmarTurno(props: any) {
 
     const guardarTurno = async () => {
         const turno = {
-            dia: turnoData?.dia.toISOString().split('T')[0],
+            dia: turnoData?.dia?.toISOString().split('T')[0],
             hora: turnoData?.hora,
-            mascota: { id_mascota: turnoData?.mascota.id_mascota },
+            mascota: { id_mascota: turnoData?.mascota?.id_mascota },
             peluquera: { id_peluquera: turnoData?.peluquera.id_peluquera }
         };
         const resp = await createTurno(turno);
@@ -51,13 +51,13 @@ export default function ConfirmarTurno(props: any) {
             <div className="d-flex flex-column align-items-center justify-content-center mb-3">
                 <p className="font-text h5 text-center">Confirmar Turno</p>
                 <p className="font-text text-center">
-                    {`Dia: ${turnoData?.dia.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}`}
+                    {`Dia: ${turnoData?.dia?.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}`}
                 </p>
                 <p className="font-text text-center">
                     {`Hora: ${turnoData?.hora}`}
                 </p>
                 <p className="font-text text-center">
-                    {'Mascota: ' + turnoData?.mascota.nombre}
+                    {'Mascota: ' + turnoData?.mascota?.nombre}
                 </p>
                 <p className="font-text text-center">
                     {'Peluquero/a: ' + turnoData?.peluquera.nombre}

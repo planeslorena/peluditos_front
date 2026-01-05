@@ -10,7 +10,7 @@ export default function Horarios(props: any) {
     const [horariosDisp, setHorariosDisp] = useState<any[]>([]);
 
     const cargarHorarios = async () => {
-        const horariosDisp = await getTurnosDisponibles({ day: turnoData?.dia.toISOString().split('T')[0] || '' }) || [];
+        const horariosDisp = await getTurnosDisponibles({ day: turnoData?.dia?.toISOString().split('T')[0] || '' }) || [];
         setHorariosDisp(horariosDisp);
     }
 
@@ -42,7 +42,7 @@ export default function Horarios(props: any) {
             <div className="d-flex flex-column align-items-center justify-content-center mb-3">
                 <p className="font-text h5 text-center">Horarios disponibles</p>
                 <p className="font-text text-center">
-                    {'Turno para: ' + turnoData?.mascota.nombre + ' el ' + turnoData?.dia.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}
+                    {'Turno para: ' + turnoData?.mascota?.nombre + ' el ' + turnoData?.dia?.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).replace(/^\w/, c => c.toUpperCase())}
                 </p>
 
                 {horariosDisp.map((horario: any, index: number) => {

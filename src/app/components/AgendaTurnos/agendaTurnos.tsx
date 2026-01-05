@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './agendaTurnos.css';
-import { getPeluqueras, getTurnosPorDia } from '@/app/services/admin';
+import { getPeluqueras, getTurnosDeshabilitados, getTurnosPorDia } from '@/app/services/admin';
 import { ModalTurno } from '../modalsAdmin/turnos';
 import { IProfesional } from '@/app/model/IProfesional';
 import { ITurno } from '@/app/model/Iturno';
+import moment from 'moment';
+
 
 
 export const AgendaTurnos: React.FC = () => {
     const [peluqueras, setPeluqueras] = useState<IProfesional[]>([]);
     const [turnos, setTurnos] = useState<ITurno[]>([]);
+    const [turnosDeshabilitados, setTurnosDeshabilitados] = useState<ITurno[]>([]);
     const [fechaSeleccionada, setFechaSeleccionada] = useState<string>(
         new Date().toISOString().split('T')[0]
     );
@@ -31,8 +34,10 @@ export const AgendaTurnos: React.FC = () => {
     const cargarDatos = async () => {
         const peluqs = await getPeluqueras();
         const t = await getTurnosPorDia(fechaSeleccionada);
+        const td = await getTurnosDeshabilitados(fechaSeleccionada);
         setPeluqueras(peluqs);
         setTurnos([...t]);
+        setTurnosDeshabilitados(td);
     };
 
     useEffect(() => {
@@ -42,7 +47,11 @@ export const AgendaTurnos: React.FC = () => {
     // obtenemos todos los horarios posibles (union de todos los horarios de todas las peluqueras y todos los horarios ds los turnos)
     const todosHorarios = Array.from(
         new Set([
-            ...peluqueras.flatMap((p) => p.horarios.map((h) => h.horario)),
+            ...peluqueras.flatMap((p) =>
+                p.horarios
+                    .filter((h) => h.dia === moment(fechaSeleccionada).day())
+                    .map((h) => h.horario)
+            ),
             ...turnos.map((t) => t.hora),
         ])
     ).sort();
@@ -94,7 +103,7 @@ export const AgendaTurnos: React.FC = () => {
                                         return (
                                             <td
                                                 key={p.id_peluquera}
-                                                className={'table-admin-td ocupado'}
+                                                className={'table-admin-td ocupado clickable'}
                                                 title={esHorarioExtra ? 'Turno fuera de horario habitual' : ''}
                                                 onClick={() =>
                                                     handleOpenModal('ver', {
@@ -106,8 +115,23 @@ export const AgendaTurnos: React.FC = () => {
                                                     })
                                                 }
                                             >
-                                                🐾 {turno.mascota.nombre} -
-                                                <br />{turno.mascota.duenio?.nombre}{esHorarioExtra ? ' (extra)' : ''}
+                                                🐾 {turno.mascota?.nombre} -
+                                                <br />{turno.mascota?.duenio?.nombre}{esHorarioExtra ? ' (extra)' : ''}
+                                            </td>
+                                        );
+                                    }
+
+                                    //Si no hay turno, pero el horario está deshabilitado → Deshabilitado
+                                    const turnoDeshabilitado = turnosDeshabilitados.find(
+                                        (t) => t.peluquera.id_peluquera === p.id_peluquera && t.hora === hora
+                                    );
+                                    if (turnoDeshabilitado) {
+                                        return (
+                                            <td
+                                                key={p.id_peluquera}
+                                                className="table-admin-td no-horario"
+                                            >
+                                                Deshabilitado
                                             </td>
                                         );
                                     }
