@@ -80,9 +80,29 @@ export const ModalProfesional: React.FC<ModalProps> = ({
     horarios: data.horarios.map(h => ({
       ...h,
       id_horario: h.id_horario ? Number(h.id_horario) : null,
-        dia: Number(h.dia),
+      dia: Number(h.dia),
     })),
   });
+
+  const agregarLunesAViernes = () => {
+    const input = document.getElementById('lvHorario') as HTMLInputElement;
+    const horario = input?.value;
+
+    if (!horario) return;
+
+    const diasLaborales = [1, 2, 3, 4, 5];
+
+    diasLaborales.forEach((dia) => {
+      append({
+        id_horario: null,
+        dia: dia,
+        horario: horario
+      });
+    });
+
+    input.value = '';
+  };
+
 
   const onSubmit: SubmitHandler<IProfesional> = async (formData) => {
     const profesional = normalizeData(formData);
@@ -106,7 +126,7 @@ export const ModalProfesional: React.FC<ModalProps> = ({
         updateData();
       }
     } else if (action === 'Modificar') {
-        console.log(profesional);
+      console.log(profesional);
       const resp = await updateProfesional(profesional);
       if (resp === 404) {
         setErrorRegister('No se encontró la profesional para actualizar.');
@@ -116,7 +136,7 @@ export const ModalProfesional: React.FC<ModalProps> = ({
           text: 'El DNI ingresado ya se encuentra registrado.',
           icon: 'error',
         });
-      } else  if (resp === 200) {
+      } else if (resp === 200) {
         Swal.fire({
           title: 'Modificación Profesional',
           text: 'Datos actualizados con éxito.',
@@ -197,6 +217,27 @@ export const ModalProfesional: React.FC<ModalProps> = ({
           {/* --- HORARIOS --- */}
           <div className="form-group mb-2">
             <label>Horarios</label>
+            {action !== 'Ver' && (
+              <div className="row mb-3">
+                <div className="col-5">
+                  <input
+                    type="time"
+                    className="form-control"
+                    id="lvHorario"
+                  />
+                </div>
+                <div className="col-5">
+                  <button
+                    type="button"
+                    className="btn btn-secondary w-100"
+                    onClick={() => agregarLunesAViernes()}
+                  >
+                    Lunes a Viernes
+                  </button>
+                </div>
+              </div>
+            )}
+
             {fields.map((field, index) => (
               <div key={field.id} className="row align-items-center mb-2">
                 <div className="col-5">

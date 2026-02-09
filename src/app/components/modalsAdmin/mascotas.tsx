@@ -27,6 +27,7 @@ const schema = yup.object().shape({
         .test('positive', 'La edad debe ser positiva', value =>
             value ? parseInt(value) > 0 : true
         ),
+    tipo_edad: yup.string().required('El tipo de edad es requerido'),
     castrado: yup.boolean().required('Debe indicar si está castrado'),
     desparasitado: yup.boolean().required('Debe indicar si está desparasitado'),
     antirrabica: yup.string().required('La fecha de la vacuna de rabia es requerida').matches(/^(0[1-9]|1[0-2])\/\d{4}$/, 'Formato inválido, use MM/AAAA').test('no-futura', 'La fecha no puede ser futura', (value) => {
@@ -166,6 +167,8 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
         }
     }, [razas, data, setValue]);
 
+    
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -201,7 +204,7 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
                     </div>
 
                     <div className='row mb-2'>
-                        <div className="col">
+                        <div className="col-6">
                             <label>Raza (o parecido a:)</label>
                             <select
                                 disabled={action === 'Ver'}
@@ -216,8 +219,8 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
                             {errors.raza && <div className="invalid-feedback">{errors.raza.message}</div>}
                         </div>
 
-                        <div className="col">
-                            <label>Edad (años)</label>
+                        <div className="col-3">
+                            <label>Edad (años/meses)</label>
                             <input
                                 type="number"
                                 readOnly={action === 'Ver'}
@@ -226,6 +229,18 @@ export const ModalMascota: React.FC<clientProps> = ({ show, handleClose, data, a
                                 {...register('edad')}
                             />
                             {errors.edad && <div className="invalid-feedback">{errors.edad.message}</div>}
+                        </div>
+                        <div className="col-3">
+                            <label>Años/Meses</label>
+                            <select
+                                disabled={action === 'Ver'}
+                                className={`form-control ${errors.tipo_edad ? 'is-invalid' : ''}`}
+                                {...register('tipo_edad')}
+                                defaultValue={data?.tipo_edad}
+                            >
+                                <option value="años">Años</option>
+                                <option value="meses">Meses</option>
+                            </select>
                         </div>
                     </div>
                     <div className='row mb-2'>

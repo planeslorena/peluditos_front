@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createTurno, deleteTurno, getAllMascotas } from '@/app/services/client';
-import { deshabilitarTurno, getPeluqueras } from '@/app/services/admin';
+import { deshabilitarTurno, getPeluqueras, habilitarTurno } from '@/app/services/admin';
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
 
@@ -27,6 +27,7 @@ interface ModalProps {
         hora?: string;
         peluquera?: { id_peluquera: number };
         mascota?: { id_mascota: number, nombre: string, duenio?: { nombre: string } };
+        id_turno_deshabilitado?: number
     };
     action?: string;
 }
@@ -65,6 +66,7 @@ export const ModalTurno: React.FC<ModalProps> = ({
                     hora: defaultData?.hora ?? '',
                     peluquera: defaultData?.peluquera?.id_peluquera ?? '',
                     mascota: defaultData?.mascota?.id_mascota ?? '',
+                    id_turno_deshabilitado: defaultData?.id_turno_deshabilitado ?? '',
                 });
             } else {
                 reset({
@@ -164,6 +166,38 @@ export const ModalTurno: React.FC<ModalProps> = ({
         });
     }
 
+    const habilitaTurno = async (id_turno_deshabilitado :any) => {
+        Swal.fire({
+            title: "Advertencia",
+            text: `Estas seguro de que quieres habilitar el turno?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirmar",
+            cancelButtonText: "Cancelar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const resp = await habilitarTurno(id_turno_deshabilitado);
+                if (resp == 200) {
+                    Swal.fire({
+                        title: `Habilitar turno`,
+                        text: `El turno fue habilitado con exito!`,
+                        icon: "success"
+                    });
+                    updateAgenda();
+                    handleClose();
+                } else {
+                    Swal.fire({
+                        title: `${resp}`,
+                        text: `No se pudo habilitar el turno`,
+                        icon: "error"
+                    });
+                }
+            }
+        });
+    }
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -251,7 +285,7 @@ export const ModalTurno: React.FC<ModalProps> = ({
                         )}
                     </div>
 
-                    {action !== 'ver' &&
+                    {(action !== 'ver' && action !== 'habilitar') &&
                         <div className='d-flex flex-row justify-content-between my-3'>
                             <div>
                                 <button
@@ -269,6 +303,19 @@ export const ModalTurno: React.FC<ModalProps> = ({
                             <div>
                                 <button type="submit" className="btn-style">
                                     Asignar turno
+                                </button>
+                            </div>
+                        </div>
+                    }
+                    {(action === 'habilitar') &&
+                        <div className='d-flex justify-content-end mt-3'>
+                            <div>
+                                <button
+                                    type="button"
+                                    className="btn-style"
+                                    onClick={() => habilitaTurno(defaultData?.id_turno_deshabilitado)}
+                                >        
+                                    Habilitar turno
                                 </button>
                             </div>
                         </div>

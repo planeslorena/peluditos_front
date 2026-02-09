@@ -67,6 +67,15 @@ export const deshabilitarTurno = async (turno: ITurnoDeshabilitado): Promise<any
     }
 }
 
+export const habilitarTurno = async (id_turno_deshabilitado: any): Promise<any> => {
+    try {
+        const response: AxiosResponse<any, any> = await clientAxios.delete('turnos/habilitarTurno/' + id_turno_deshabilitado);
+        return response.status;
+    } catch (error:any) {
+        return error.response.data.statusCode;
+    }
+}
+
 export const createProfesional = async (profesional: IProfesional): Promise<any> => {
     try {
         const response: AxiosResponse<any, any> = await clientAxios.post('admin/peluqueras', profesional);

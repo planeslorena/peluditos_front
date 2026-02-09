@@ -43,7 +43,8 @@ const columnsMascotas = [
   },
   {
     header: "Edad",
-    accessorKey: "edad"
+    accessorFn: (row: any) => `${row.edad} ${row.tipo_edad}`,
+    id: "edad"
   },
   {
     header: "Raza",
@@ -224,7 +225,7 @@ function AdminPage() {
         </div>
         {filter == 'Turnos' && <AgendaTurnos />}
         {filter != 'Turnos' &&
-        <AdminTable data={data} columns={columns} filter={filter} updateData={updateData} />
+          <AdminTable data={data} columns={columns} filter={filter} updateData={updateData} />
         }
       </main>
     </>

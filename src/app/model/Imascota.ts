@@ -6,6 +6,7 @@ export interface Imascota {
     nombre: string;
     raza: string;
     edad: number;
+    tipo_edad: string;
     castrado: boolean;
     desparasitado: boolean;
     veterinario: string;

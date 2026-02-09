@@ -18,7 +18,7 @@
     "@hookform/resolvers": "^5.2.1",
     "@tanstack/react-table": "^8.21.3",
     "axios": "^1.9.0",
-    "bootstrap": "^5.3.6",
+    "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.11.3",
     "fullcalendar": "^6.1.19",
     "moment": "^2.30.1",
