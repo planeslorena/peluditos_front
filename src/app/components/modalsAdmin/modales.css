@@ -1,16 +1,16 @@
 /* Ajustar el tamaño del modal */
 .modal-dialog {
     max-width: 40%; /* Asegura que el modal ocupe el 50% del ancho de la pantalla */
-    height: 95vh; /* Establece la altura del modal al 95% de la pantalla */
-    max-height: 95vh; /* Limita la altura del modal al 95% de la altura de la pantalla */
-    overflow-y: auto; /* Permite scroll vertical si el contenido excede la altura */
+    /*height: 95vh; /* Establece la altura del modal al 95% de la pantalla */
+    /*max-height: 95vh; /* Limita la altura del modal al 95% de la altura de la pantalla */
+    /*overflow-y: auto; /* Permite scroll vertical si el contenido excede la altura */
 }
 
 /* Ajustar el contenido del modal */
 .modal-content {
     margin-bottom: 0 !important; /* Elimina cualquier margen inferior */
     padding-bottom: 0 !important; /* Elimina cualquier padding inferior */
-     background-color: #f9f9f9; /* Gris claro */
+    background-color: #f9f9f9; /* Gris claro */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
 
 }

@@ -77,7 +77,7 @@ export const AgendaTurnos: React.FC = () => {
                         className="btn btn-light me-2"
                         onClick={() => cambiarDia(-1)}
                     >
-                    <i className="bi bi-caret-left"></i>
+                        <i className="bi bi-caret-left"></i>
                     </button>
 
                     <input
@@ -93,7 +93,7 @@ export const AgendaTurnos: React.FC = () => {
                         className="btn btn-light ms-2"
                         onClick={() => cambiarDia(1)}
                     >
-                    <i className="bi bi-caret-right"></i>
+                        <i className="bi bi-caret-right"></i>
                     </button>
                 </div>
 
@@ -178,8 +178,9 @@ export const AgendaTurnos: React.FC = () => {
                                     }
 
                                     // Si no hay turno y la peluquera trabaja ese horario → Pendiente
-                                    const tieneHorario = p.horarios.some((h) => h.horario === hora);
-                                    if (tieneHorario) {
+                                    const tieneHorario = p.horarios.some(
+                                        (h) => h.horario === hora && h.dia === moment(fechaSeleccionada).day()
+                                    ); if (tieneHorario) {
                                         return (
                                             <td
                                                 key={p.id_peluquera}

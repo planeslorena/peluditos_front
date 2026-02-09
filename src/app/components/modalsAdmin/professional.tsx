@@ -156,7 +156,7 @@ export const ModalProfesional: React.FC<ModalProps> = ({
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} scrollable={true}>
       <Modal.Header closeButton>
         <Modal.Title>{action} profesional</Modal.Title>
       </Modal.Header>

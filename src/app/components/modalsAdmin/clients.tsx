@@ -116,7 +116,7 @@ export const ModalCliente: React.FC<clientProps> = ({ show, handleClose, data, a
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} scrollable={true} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>{action} cliente</Modal.Title>
                 </Modal.Header>
