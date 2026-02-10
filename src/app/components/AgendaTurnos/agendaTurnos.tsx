@@ -145,6 +145,7 @@ export const AgendaTurnos: React.FC = () => {
                                             >
                                                 🐾 {turno.mascota?.nombre} -
                                                 <br />{turno.mascota?.duenio?.nombre}{esHorarioExtra ? ' (extra)' : ''}
+                                                <br />{turno.mascota.duenio?.telefono}
                                             </td>
                                         );
                                     }
@@ -180,7 +181,8 @@ export const AgendaTurnos: React.FC = () => {
                                     // Si no hay turno y la peluquera trabaja ese horario → Pendiente
                                     const tieneHorario = p.horarios.some(
                                         (h) => h.horario === hora && h.dia === moment(fechaSeleccionada).day()
-                                    ); if (tieneHorario) {
+                                    );
+                                    if (tieneHorario) {
                                         return (
                                             <td
                                                 key={p.id_peluquera}

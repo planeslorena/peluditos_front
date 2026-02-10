@@ -61,6 +61,16 @@
     font-weight: bold;
 }
 
+.bi-caret-left{
+    color: #f2994a;
+    font-size: 20px;
+}
+
+.bi-caret-right{
+    color: #f2994a;
+    font-size: 20px;
+}
+
 /*Ajustes modo dark*/
 @media (prefers-color-scheme: dark) {
     .table-agenda td.fw-bold {
