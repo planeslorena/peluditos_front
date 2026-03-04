@@ -29,7 +29,7 @@ export default function ConfirmarTurno(props: any) {
         } else {
             Swal.fire({
                 title: `Tu turno se agendó correctamente!`,
-                text: "Recibirás un mensaje de confirmación.",
+                text: "Podes chequearlo en tu perfil.",
                 icon: "success"
             }).then(() => {
                 setTurnoData(null);

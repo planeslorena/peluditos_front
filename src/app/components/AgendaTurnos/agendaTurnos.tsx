@@ -143,7 +143,7 @@ export const AgendaTurnos: React.FC = () => {
                                                     })
                                                 }
                                             >
-                                                🐾 {turno.mascota?.nombre} -
+                                                🐾 {turno.mascota?.nombre} - {turno.mascota.num_mascota ? `N° ${turno.mascota.num_mascota}` : ''}
                                                 <br />{turno.mascota?.duenio?.nombre}{esHorarioExtra ? ' (extra)' : ''}
                                                 <br />{turno.mascota.duenio?.telefono}
                                             </td>

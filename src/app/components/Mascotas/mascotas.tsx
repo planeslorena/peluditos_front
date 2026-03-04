@@ -3,16 +3,18 @@ import { useContext, useEffect, useState } from 'react';
 import { TurnoContext } from '@/app/context/turno.context';
 import './mascotas.css'
 import AgregarMascota from '../AgregarMascota/agregarMascota';
-import { getMascotas } from '@/app/services/client';
+import { getMascotas, getTurnos } from '@/app/services/client';
 import { UserContext } from '@/app/context/user.context';
+import moment from 'moment';
 
 
 
 export default function Mascotas(props: any) {
-    const { setMostrarUsuario, setMostrarMascotas, setMostrarCalendario}: { setMostrarUsuario: Function, setMostrarMascotas: Function, setMostrarCalendario: Function } = props;
+    const { setMostrarUsuario, setMostrarMascotas, setMostrarCalendario }: { setMostrarUsuario: Function, setMostrarMascotas: Function, setMostrarCalendario: Function } = props;
     const { turnoData, setTurnoData } = useContext(TurnoContext);
-    const {userData} = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     const [mascotas, setMascotas] = useState<string[]>([]);
+    const [turnos, setTurnos] = useState<string[]>([]);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -23,10 +25,15 @@ export default function Mascotas(props: any) {
         setMascotas(mascotas);
     }
 
+    const cargarTurnos = async () => {
+        const turnos = await getTurnos(userData?.dni || 0) || [];
+        setTurnos(turnos);
+    }
+
     const guardarMascota = (mascota: any) => {
         setTurnoData({
             ...turnoData,
-            mascota: {id_mascota: mascota.id_mascota, nombre: mascota.nombre},
+            mascota: { id_mascota: mascota.id_mascota, nombre: mascota.nombre },
         })
         setMostrarMascotas(false);
         setMostrarCalendario(true);
@@ -39,6 +46,7 @@ export default function Mascotas(props: any) {
 
     useEffect(() => {
         cargarMascotas();
+        cargarTurnos();
     }, []);
 
     useEffect(() => {
@@ -71,7 +79,18 @@ export default function Mascotas(props: any) {
                 </button>
                 <AgregarMascota show={show} handleClose={handleClose}></AgregarMascota>
             </div>
-
+            <div className="d-flex flex-column align-items-center justify-content-center mb-3">
+                <p className="font-text h5 text-center">Próximos Turnos</p>
+                <ul>
+                    {turnos.map((turno: any, index: number) => {
+                        return (
+                            <li key={index} className="my-2 col-12 mx-auto">
+                                {turno.mascota.nombre} - {moment(turno.dia).format('DD/MM/YYYY')} - {turno.hora} - Peluquero/a: {turno.peluquera.nombre}
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
         </>
     );
 }

@@ -29,6 +29,15 @@ export const getMascotas = async (user:number): Promise<any> => {
     }
 }
 
+export const getTurnos = async (dni:number): Promise<any> => {
+    try {
+        const response: AxiosResponse<any, any> = await clientAxios.get('turnos/'+dni);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const createClient = async (user:ICliente): Promise<any> => {
     try {
         const response: AxiosResponse<any, any> = await clientAxios.post('client', user);
