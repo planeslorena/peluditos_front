@@ -15,7 +15,7 @@ export default function PelusPage() {
   const [turnos, setTurnos] = useState<ITurno[]>([]);
   const [turnosDeshabilitados, setTurnosDeshabilitados] = useState<ITurnoDeshabilitado[]>([]);
   const [fechaSeleccionada, setFechaSeleccionada] = useState<string>(
-    new Date().toISOString().split('T')[0]
+    moment().format('YYYY-MM-DD')
   );
 
   const cargarDatos = async () => {
@@ -36,7 +36,7 @@ export default function PelusPage() {
     new Set([
       ...peluqueras.flatMap((p) =>
         p.horarios
-          .filter((h) => h.dia === moment(fechaSeleccionada).day())
+          .filter((h) => h.dia === moment(fechaSeleccionada, 'YYYY-MM-DD').day())
           .map((h) => h.horario)
       ),
       ...turnos.map((t) => t.hora),
@@ -72,7 +72,7 @@ export default function PelusPage() {
               id="fecha"
               type="date"
               value={fechaSeleccionada}
-              onChange={(e) => setFechaSeleccionada(e.target.value)}
+              onChange={(e) => setFechaSeleccionada(moment(e.target.value).format('YYYY-MM-DD'))}
               className="input-fecha"
             />
 
@@ -118,7 +118,7 @@ export default function PelusPage() {
                           className={'table-admin-td ocupado'}
                           title={esHorarioExtra ? 'Turno fuera de horario habitual' : ''}
                         >
-                          🐾 {turno.mascota.nombre} -
+                          🐾 {turno.mascota.nombre} - {turno.mascota.num_mascota ? `N° ${turno.mascota.num_mascota}` : ''}
                           <br />{turno.mascota.duenio?.nombre}{esHorarioExtra ? ' (extra)' : ''}
                           <br />{turno.mascota.duenio?.telefono}
                         </td>
@@ -142,7 +142,7 @@ export default function PelusPage() {
 
                     // Si no hay turno y la peluquera trabaja ese horario → Pendiente
                     const tieneHorario = p.horarios.some(
-                      (h) => h.horario === hora && h.dia === moment(fechaSeleccionada).day()
+                      (h) => h.horario === hora && h.dia === moment(fechaSeleccionada, 'YYYY-MM-DD').day()
                     ); 
                     if (tieneHorario) {
                       return (
