@@ -15,8 +15,8 @@ export default function Calendario(props: any) {
     const { setMostrarMascotas, setMostrarCalendario, setMostrarHorarios }: { setMostrarMascotas: Function, setMostrarCalendario: Function, setMostrarHorarios: Function } = props;
     const [value, onChange] = useState<Value>();
     const { turnoData, setTurnoData } = useContext(TurnoContext);
-    const fechaMinima = moment('01/03/2026', 'DD/MM/YYYY').toDate() < moment(new Date()).toDate() ? moment(new Date()).toDate() : moment('01/03/2026', 'DD/MM/YYYY').toDate(); //moment(new Date()).add(1, 'days').toDate();
-    const fechaMaxima = moment('30/04/2026', 'DD/MM/YYYY').toDate(); //moment(new Date()).add(30, 'days').toDate();
+    const fechaMinima = moment().add(1, 'day').startOf('day').toDate();
+    const fechaMaxima = moment('31/05/2026', 'DD/MM/YYYY').toDate(); //moment(new Date()).add(30, 'days').toDate();
     const [diasNoDisponibles, setDiasNoDisponibles] = useState<string[]>([]);
     const [sinDia, setSinDia] = useState<string>();
 
