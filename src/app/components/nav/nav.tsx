@@ -18,7 +18,7 @@ export function Menu() {
           <div className="d-flex align-items-center justify-content-between w-100 ">
             <Navbar.Brand onClick={handleClickHome}>
               <img
-                src="/images/logo-peluditos2.png"
+                src="/images/logo-peluditos2026.jpeg"
                 className="img-fluid img-logo"
                 alt="Logo Peluditos"
                 onClick={() => { router.push('/home') }}
